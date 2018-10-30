@@ -19,15 +19,10 @@ class FilterButton extends Component {
 
     render(){
 
-        let cssClass = 'btn btn-light'
-
-        if (this.state.clicked){
-            cssClass='btn btn-primary'
-        }
 
         return (
-            <div style={{display: 'inline', margin: '5px'}}>
-                <button onClick={() => this.change(this.props.clicked)} className={cssClass}>{this.props.name}</button>
+            <div >
+                <button onClick={() => this.change(this.props.clicked)}>{this.props.name}</button>
             </div>
         )}
 }

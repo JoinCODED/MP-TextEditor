@@ -36,29 +36,9 @@ class App extends Component {
 
     render (){
 
-        let textClass = []
-        if (this.state.styling.bold)
-            textClass.push('bold')
-
-        if (this.state.styling.italic)
-            textClass.push('italic')
-
-        if (this.state.styling.underline)
-            textClass.push('underline')
-
-        const fontColor = {
-            color : this.state.color,
-            margin: '5px'
-        }
-
-        textClass = textClass.join(' ')
-
-
-        console.log(textClass)
-        console.log(fontColor)
 
         let colourBoxes = this.colors.map(color => {
-            return <button key={color} className='colourBox' style={{backgroundColor: color, display : 'inline', margin: '3px'}} onClick={() => this.colourChosen(color)}/>
+            return <button key={color} onClick={() => this.colourChosen(color)}/>
         })
 
         return (
@@ -67,7 +47,7 @@ class App extends Component {
                 <FilterButton clicked={this.change} styling={this.state.change} name='italic'/>
                 <FilterButton clicked={this.change} styling={this.state.change} name='underline'/>
                 <br/>
-                <textarea className={textClass} style={fontColor}/>
+                <textarea/>
                 <br/>
                 {colourBoxes}
 
