@@ -1,60 +1,54 @@
-import React, { Component } from 'react';
-import './App.css';
-import FilterButton from './FilterButton/FilterButton'
+import React, { Component } from "react";
+import "./App.css";
+import StyleButton from "./StyleButton";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      styling: {
+        bold: false,
+        italic: false,
+        underline: false
+      },
+      color: "black"
+    };
 
-    constructor(props){
-        super(props)
-        this.state = {
-            styling : {
-                bold: false,
-                italic : false,
-                underline : false,
-            },
-            color : 'black'
-        }
-    }
+    this.colors = ["yellow", "blue", "red", "black", "purple"];
 
+    this.setStyle = this.setStyle.bind(this);
+    this.chooseColor = this.chooseColor.bind(this);
+  }
 
-    colors = ['yellow', 'blue', 'red', 'black', 'purple']
+  setStyle(style) {
+    const styling = { ...this.state.styling };
+    styling[style] = !styling[style];
+    this.setState({ styling: styling });
+  }
 
+  chooseColor(color) {
+    this.setState({ color: color });
+  }
 
-    change = (style) => {
-        if (style === 'bold'){
-            this.setState({styling : {...this.state.styling ,bold : !this.state.styling.bold}})
-        }else if( style === 'italic'){
-            this.setState({styling : {...this.state.styling , italic : !this.state.styling.italic}})
-        }else{
-            this.setState({styling : {...this.state.styling , underline : !this.state.styling.underline}})
-        }
-    }
+  render() {
+    let colorBoxes = this.colors.map(color => {
+      return <button key={color} onClick={() => this.chooseColor(color)} />;
+    });
 
-    colourChosen = (colour) => {
-        this.setState({color : colour})
-    }
-
-    render (){
-
-
-        let colourBoxes = this.colors.map(color => {
-            return <button key={color} onClick={() => this.colourChosen(color)}/>
-        })
-
-        return (
-            <div className='App'>
-                <FilterButton clicked={this.change} styling={this.state.change} name='bold'/>
-                <FilterButton clicked={this.change} styling={this.state.change} name='italic'/>
-                <FilterButton clicked={this.change} styling={this.state.change} name='underline'/>
-                <br/>
-                <textarea/>
-                <br/>
-                {colourBoxes}
-
-            </div>
-
-        )
-    }
+    return (
+      <div className="App">
+        <br />
+        <StyleButton select={this.setStyle} name="bold" />
+        <StyleButton select={this.setStyle} name="italic" />
+        <StyleButton select={this.setStyle} name="underline" />
+        <br />
+        <br />
+        <textarea />
+        <br />
+        {colorBoxes}
+      </div>
+    );
+  }
 }
 
 export default App;
