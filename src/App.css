@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+}
+
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+
+.colourBox {
+
+width: 25px;
+height: 25px;
+border: solid black 2px;
+cursor: pointer;
+
+}
+
+
+
+
+
+
+
+
+
+
