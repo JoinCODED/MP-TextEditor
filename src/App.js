@@ -52,7 +52,7 @@ class App extends Component {
       );
     });
 
-    let colorBoxes = this.colors.map(color => {
+    let colorBoxes = colors.map(color => {
       return (
         <button
           onClick={() => this.setColor(color)}
