@@ -9,10 +9,10 @@ const styles = {
 
 class App extends Component {
   render() {
-    let stylings = ["bold", "italic", "underline"];
+    let styleNames = ["bold", "italic", "underline"];
     let colors = ["yellow", "blue", "red", "black", "purple"];
 
-    let stylingBoxes = stylings.map(style => {
+    let stylingBoxes = styleNames.map(style => {
       return (
         <button style={styles[style]} key={style}>
           {style}
@@ -31,13 +31,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <br />
-        {stylingBoxes}
-        <br />
-        <br />
+        <div className="my-3">{stylingBoxes}</div>
         <textarea />
-        <br />
-        {colorBoxes}
+        <div className="my-3">{colorBoxes}</div>
       </div>
     );
   }
