@@ -41,6 +41,9 @@ class App extends Component {
     const stylingBoxes = styleNames.map(style => {
       return (
         <button
+          className={`btn btn-${
+            this.state[style] ? "primary" : "outline-primary"
+          }`}
           style={styles[style]}
           key={style}
           onClick={() => this.setStyle(style)}
