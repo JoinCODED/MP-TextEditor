@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import "./App.css";
 
-const styles = {
-  bold: { fontWeight: "bold" },
-  italic: { fontStyle: "italic" },
-  underline: { textDecorationLine: "underline" }
-};
-
 class App extends Component {
   render() {
-    let styleNames = ["bold", "italic", "underline"];
-    let colors = ["yellow", "blue", "red", "black", "purple"];
+    const styles = {
+      bold: { fontWeight: "bold" },
+      italic: { fontStyle: "italic" },
+      underline: { textDecorationLine: "underline" }
+    };
 
-    let stylingBoxes = styleNames.map(style => {
+    const styleNames = ["bold", "italic", "underline"];
+    const colors = ["yellow", "blue", "red", "black", "purple"];
+
+    const stylingBoxes = styleNames.map(style => {
       return (
         <button style={styles[style]} key={style}>
           {style}
@@ -20,7 +20,7 @@ class App extends Component {
       );
     });
 
-    let colorBoxes = colors.map(color => {
+    const colorBoxes = colors.map(color => {
       return (
         <button
           style={{ backgroundColor: color, height: 30, width: 30 }}
