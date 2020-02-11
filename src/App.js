@@ -14,7 +14,11 @@ class App extends Component {
 
     let stylingBoxes = stylings.map(style => {
       return (
-        <button style={styles[style]} key={style}>
+        <button
+          className="btn btn-light"
+          style={{ ...styles[style], marginTop: "20px", marginBottom: "15px" }}
+          key={style}
+        >
           {style}
         </button>
       );
@@ -31,13 +35,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <br />
-        {stylingBoxes}
-        <br />
-        <br />
+        <div>{stylingBoxes}</div>
         <textarea />
-        <br />
-        {colorBoxes}
+        <div>{colorBoxes}</div>
       </div>
     );
   }
