@@ -29,39 +29,26 @@ class App extends Component {
   };
 
   render() {
-    const styles = {
-      bold: { fontWeight: "bold" },
-      italic: { fontStyle: "italic" },
-      underline: { textDecorationLine: "underline" }
-    };
+    const stylingBoxes = stylings.map(style => (
+      <button
+        className={`btn btn-${
+          this.state[style] ? "primary" : "outline-primary"
+        }`}
+        style={styles[style]}
+        key={style}
+        onClick={() => this.setStyle(style)}
+      >
+        {style}
+      </button>
+    ));
 
-    const styleNames = ["bold", "italic", "underline"];
-    const colors = ["yellow", "blue", "red", "black", "purple"];
-
-    const stylingBoxes = styleNames.map(style => {
-      return (
-        <button
-          className={`btn btn-${
-            this.state[style] ? "primary" : "outline-primary"
-          }`}
-          style={styles[style]}
-          key={style}
-          onClick={() => this.setStyle(style)}
-        >
-          {style}
-        </button>
-      );
-    });
-
-    const colorBoxes = colors.map(color => {
-      return (
-        <button
-          style={{ backgroundColor: color, height: 30, width: 30 }}
-          key={color}
-          onClick={() => this.chooseColor(color)}
-        />
-      );
-    });
+    const colorBoxes = colors.map(color => (
+      <button
+        style={{ backgroundColor: color, height: 30, width: 30 }}
+        key={color}
+        onClick={() => this.chooseColor(color)}
+      />
+    ));
 
     return (
       <div className="App">
