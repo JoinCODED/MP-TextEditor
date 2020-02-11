@@ -14,11 +14,7 @@ const colors = ["yellow", "blue", "red", "black", "purple"];
 class App extends Component {
   render() {
     const stylingBoxes = stylings.map(style => (
-      <button
-        className="btn btn-light"
-        style={{ ...styles[style], marginTop: "20px", marginBottom: "15px" }}
-        key={style}
-      >
+      <button className="btn btn-light" style={styles[style]} key={style}>
         {style}
       </button>
     ));
@@ -32,9 +28,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div>{stylingBoxes}</div>
+        <div className="my-3">{stylingBoxes}</div>
         <textarea />
-        <div>{colorBoxes}</div>
+        <div className="my-3">{colorBoxes}</div>
       </div>
     );
   }
