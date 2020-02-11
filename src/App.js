@@ -7,31 +7,28 @@ const styles = {
   underline: { textDecorationLine: "underline" }
 };
 
+const stylings = ["bold", "italic", "underline"];
+
+const colors = ["yellow", "blue", "red", "black", "purple"];
+
 class App extends Component {
   render() {
-    let stylings = ["bold", "italic", "underline"];
-    let colors = ["yellow", "blue", "red", "black", "purple"];
+    const stylingBoxes = stylings.map(style => (
+      <button
+        className="btn btn-light"
+        style={{ ...styles[style], marginTop: "20px", marginBottom: "15px" }}
+        key={style}
+      >
+        {style}
+      </button>
+    ));
 
-    let stylingBoxes = stylings.map(style => {
-      return (
-        <button
-          className="btn btn-light"
-          style={{ ...styles[style], marginTop: "20px", marginBottom: "15px" }}
-          key={style}
-        >
-          {style}
-        </button>
-      );
-    });
-
-    let colorBoxes = colors.map(color => {
-      return (
-        <button
-          style={{ backgroundColor: color, height: 30, width: 30 }}
-          key={color}
-        />
-      );
-    });
+    const colorBoxes = colors.map(color => (
+      <button
+        style={{ backgroundColor: color, height: 30, width: 30 }}
+        key={color}
+      />
+    ));
 
     return (
       <div className="App">
